@@ -1,8 +1,13 @@
+using Data;
+using Services.Abstract;
+using Services.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.AddSingleton<IProductRepository, ProductRepository>();
+builder.Services.AddSingleton<ProductData>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

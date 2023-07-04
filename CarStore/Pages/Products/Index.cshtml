@@ -1,0 +1,21 @@
+﻿@page
+@model CarStore.Pages.Products.IndexModel
+
+<h3>Welcome to the cars section</h3>
+
+<div class="card-group mt-5 gap-3">
+    @foreach(var car in @Model.Products)
+    {
+        var PhotoPath = "~/Photo/" + (@car.PhotoPath ?? "noimage.jpg");
+        <div class="card border border-1 rounded-1 card-container">
+            <h5 class="card-title text-center my-1">@car.Name</h5>
+            <img class="mx-1 rounded-1 card-img-top photo-style" src="@PhotoPath" asp-append-version="true"/>
+            <div class="card-footer text-center">
+                <button type="button" class="btn btn-sm btn-success">View</button>
+                <button type="button" class="btn btn-sm btn-info">Edit</button>
+                <button type="button" class="btn btn-sm btn-danger">Delete</button>
+            </div>
+        </div>
+    }
+    
+</div>
