@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarStore", "CarStore\CarSto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{A0E8FDF1-407B-4F6C-8356-6AF4C84E281F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{F43E1F6F-245A-47B6-BC60-A84012F9DF08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{D226B06F-114D-4791-B7E1-B2A9AED614B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{A0E8FDF1-407B-4F6C-8356-6AF4C84E281F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0E8FDF1-407B-4F6C-8356-6AF4C84E281F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0E8FDF1-407B-4F6C-8356-6AF4C84E281F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F43E1F6F-245A-47B6-BC60-A84012F9DF08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43E1F6F-245A-47B6-BC60-A84012F9DF08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43E1F6F-245A-47B6-BC60-A84012F9DF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43E1F6F-245A-47B6-BC60-A84012F9DF08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D226B06F-114D-4791-B7E1-B2A9AED614B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D226B06F-114D-4791-B7E1-B2A9AED614B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D226B06F-114D-4791-B7E1-B2A9AED614B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D226B06F-114D-4791-B7E1-B2A9AED614B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
