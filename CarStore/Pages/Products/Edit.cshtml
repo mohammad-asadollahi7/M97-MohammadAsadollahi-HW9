@@ -2,8 +2,11 @@
 @model CarStore.Pages.Products.EditModel
 
 <div class="text-center"><h3>Welcome to Edit section</h3></div>
-<form asp-page="" class="p-3 border border-1 container d-flex flex-column gap-4">
+<form method="post" asp-page="edit" class="p-3 border border-1 container d-flex flex-column gap-4">
     <div class="row">
+        <input type="hidden" asp-for="@Model.product.Id" />
+        <input type="hidden" asp-for="@Model.product.PhotoPath" />
+        <input type="hidden" asp-for="@Model.product.Barcode" />
         <label class="col-sm-1 me-5 padding" asp-for="@Model.product.Name"></label>
         <input class="col-sm-9" asp-for="@Model.product.Name" type="text" />
     </div>

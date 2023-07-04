@@ -13,9 +13,17 @@ public class EditModel : PageModel
         _productRepository = productRepository;
 
     }
+    [BindProperty]
     public Product product { get; set; }
-    public void OnGet(int id)
+    public IActionResult OnGet(int id)
     {
         product = _productRepository.GetProductById(id);
+        return Page();
+    }
+
+    public IActionResult OnPost()
+    {
+        _productRepository.Update(product);
+        return RedirectToPage("Index");
     }
 }

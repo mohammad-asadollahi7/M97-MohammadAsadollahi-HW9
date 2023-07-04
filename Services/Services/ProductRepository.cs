@@ -28,4 +28,11 @@ public class ProductRepository : IProductRepository
             return product;
         }
     }
+
+    public void Update(Product updatedProduct)
+    {
+        var oldProduct = _data.products.FirstOrDefault(p => p.Id == updatedProduct.Id);
+        oldProduct = updatedProduct;
+        _data.products[oldProduct.Id -1] = oldProduct;
+    }
 }
