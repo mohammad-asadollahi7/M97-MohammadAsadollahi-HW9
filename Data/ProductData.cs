@@ -4,7 +4,7 @@ namespace Data;
 
 public class ProductData
 {
-    List<Product> products = new List<Product>()
+    public List<Product> products = new List<Product>()
     {
         new Product()
         {
@@ -49,7 +49,7 @@ public class ProductData
             Price=1180000,
             Description = "The Chevrolet Camaro is a mid-size[1][2] American " +
                           "automobile manufactured by Chevrolet, classified as a pony car",
-            PhotoPath = "BMW.jpg"
+            PhotoPath = "Chevrolet.jpg"
         }
 
     };
