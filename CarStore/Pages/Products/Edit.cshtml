@@ -1,0 +1,27 @@
+﻿@page "{id}"
+@model CarStore.Pages.Products.EditModel
+
+<div class="text-center"><h3>Welcome to Edit section</h3></div>
+<form asp-page="" class="p-3 border border-1 container d-flex flex-column gap-4">
+    <div class="row">
+        <label class="col-sm-1 me-5 padding" asp-for="@Model.product.Name"></label>
+        <input class="col-sm-9" asp-for="@Model.product.Name" type="text" />
+    </div>
+
+    <div class="row ">
+        <label class="col-sm-1 me-5 padding" asp-for="@Model.product.Description"></label>
+        <input class="col-sm-9" asp-for="@Model.product.Description" type="text" />
+    </div>
+
+    <div class="row">
+        <label class="col-sm-1 me-5 padding" asp-for="@Model.product.Price"></label>
+        <input class="col-sm-9" asp-for="@Model.product.Price" type="text" />
+    </div>
+    
+    <div class="text-center">
+        <button type="submit" class="btn btn-secondary">Update</button>
+        <a asp-page="Index" class="btn btn-danger">Cancel</a>
+    </div>
+    
+</form>
+

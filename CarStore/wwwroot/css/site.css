@@ -52,3 +52,9 @@ body {
         margin:3rem auto;
     }
 }
+
+@media(max-width:580px){
+    .padding{
+        padding: 0 !important;
+    }
+}
