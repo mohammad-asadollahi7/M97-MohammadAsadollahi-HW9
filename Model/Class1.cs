@@ -9,7 +9,7 @@ namespace Model
         public string Name { get; set; }
         public string Barcode { get; set; }
         public decimal Price { get; set; }
-        public IFormFile Photo { get; set; }
+        public string PhotoPath { get; set; }
         public string Description { get; set; }
     }
 }
