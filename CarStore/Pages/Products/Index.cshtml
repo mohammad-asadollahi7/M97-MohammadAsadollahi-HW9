@@ -1,7 +1,7 @@
 ﻿@page
 @model CarStore.Pages.Products.IndexModel
 
-<h3>Welcome to the cars section</h3>
+<h3 class="text-center">Welcome to Car section</h3>
 
 <div class="row justify-content-center mt-5 gap-3">
     @foreach(var car in @Model.Products)
@@ -11,9 +11,10 @@
             <h5 class="text-center my-1 header">@car.Name</h5>
             <img class="rounded-1 photo-style" src="@PhotoPath" asp-append-version="true"/>
             <div class="rounded-1 mb-2">
-                <button type="button" class="btn btn-sm btn-success">View</button>
-                <button type="button" class="btn btn-sm btn-info">Edit</button>
-                <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                <a class="btn btn-sm btn-success"
+                        asp-page="Details" asp-route-id="@car.Id">View</a>
+                <a class="btn btn-sm btn-info">Edit</a>
+                <a class="btn btn-sm btn-danger">Delete</a>
             </div>
         </div>
     }

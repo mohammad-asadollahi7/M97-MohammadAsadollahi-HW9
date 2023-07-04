@@ -8,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IProductRepository, ProductRepository>();
 builder.Services.AddSingleton<ProductData>();
+builder.Services.Configure<RouteOptions>(opt =>
+{
+    opt.LowercaseUrls = true;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

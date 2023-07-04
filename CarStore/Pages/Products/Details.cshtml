@@ -1,0 +1,25 @@
+﻿@page "{id}"
+@model CarStore.Pages.Products.DetailsModel
+
+
+<h3 class="text-center">Welcome to the Details section</h3>
+
+@{
+    var PhotoPath = "~/Photo/" + (@Model.product.PhotoPath ?? "noimage.jpg");
+}
+<div class="border border-1 rounded-1 d-flex flex-column gap-4 align-items-center margin min-width">
+    <h5 class="text-center my-1 header">@Model.product.Name</h5>
+    <img class="rounded-1 photo-width" src="@PhotoPath" asp-append-version="true" />
+    <div class="mx-5 text-center">
+        <h6>Car Id: @Model.product.Id</h6>
+        <p>@Model.product.Description</p>
+        <h6>Price: @Model.product.Price $</h6>
+    </div>
+
+    <div class="rounded-1 mb-2">
+        <a asp-page="Index" class="btn btn-sm btn-success">Back</a>
+        <a class="btn btn-sm btn-info">Edit</a>
+        <a class="btn btn-sm btn-danger">Delete</a>
+    </div>
+</div>
+
