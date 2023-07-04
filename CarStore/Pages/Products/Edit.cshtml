@@ -2,7 +2,9 @@
 @model CarStore.Pages.Products.EditModel
 
 <div class="text-center"><h3>Welcome to Edit section</h3></div>
-<form method="post" asp-page="edit" class="p-3 border border-1 container d-flex flex-column gap-4">
+<form method="post" asp-page="edit" class="p-3 border 
+                border-1 container d-flex flex-column gap-4"
+                enctype="multipart/form-data">
     <div class="row">
         <input type="hidden" asp-for="@Model.product.Id" />
         <input type="hidden" asp-for="@Model.product.PhotoPath" />
@@ -19,6 +21,10 @@
     <div class="row">
         <label class="col-sm-1 me-5 padding" asp-for="@Model.product.Price"></label>
         <input class="col-sm-9" asp-for="@Model.product.Price" type="text" />
+    </div>
+    <div class="row">
+        <label class="col-sm-1 me-5 padding">Photo:</label>
+        <input class="col-sm-9" asp-for="@Model.Photo" type="file" />
     </div>
     
     <div class="text-center">

@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddSingleton<ProductData>();
 builder.Services.Configure<RouteOptions>(opt =>
 {

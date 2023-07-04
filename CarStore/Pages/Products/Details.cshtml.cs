@@ -15,9 +15,13 @@ public class DetailsModel : PageModel
         _productRepository = productRepository;
     }
     public Product product { get; set; }
-    public void OnGet(int id)
+    public IActionResult OnGet(int id)
     {
         product = _productRepository.GetProductById(id);
-        //return Page();
+        if (product == null)
+        {
+            return RedirectToPage("/NotFound");
+        }
+        return Page();
     }
 }
