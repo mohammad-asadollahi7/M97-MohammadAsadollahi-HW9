@@ -18,8 +18,18 @@ body {
 }
 
 .photo-style{
-    height: 100px;
-    width: auto;
+    height:100px;
+    width: 80%;
     border: 1px solid gray;
 }
 
+@media(max-width: 992px){
+    .photo-style {
+        height: auto;
+        width: 50%;
+        border: 1px solid gray;
+    }
+    .header{
+        font-size: 2rem;
+    }
+}
