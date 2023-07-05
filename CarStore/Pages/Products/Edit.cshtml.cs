@@ -11,7 +11,8 @@ public class EditModel : PageModel
     private readonly IProductRepository _productRepository;
     private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public EditModel(IProductRepository productRepository, IWebHostEnvironment webHostEnvironment)
+    public EditModel(IProductRepository productRepository, 
+                        IWebHostEnvironment webHostEnvironment)
     {
         _productRepository = productRepository;
         _webHostEnvironment = webHostEnvironment;
@@ -24,6 +25,7 @@ public class EditModel : PageModel
         product = _productRepository.GetProductById(id);
         return Page();
     }
+
 
     [BindProperty]
     public IFormFile? Photo { get; set; }
@@ -47,6 +49,25 @@ public class EditModel : PageModel
         
         return Page();
 
+    }
+
+    [BindProperty]
+    public bool Notify { get; set; }
+
+
+    public  string Message { get; set; }
+    public IActionResult OnPostNotification(int id)
+    {
+        if (Notify)
+        {
+            Message = "Notification is activated";
+        }
+        else
+        {
+            Message = "Notification is off";
+        }
+        TempData["message"] = Message;
+        return RedirectToPage("Details", new { id = id});
     }
 
     private string? ProcessPhoto()

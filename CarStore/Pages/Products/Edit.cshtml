@@ -1,12 +1,17 @@
-﻿@page "{id}"
+﻿@page "{id:min(1)}"
 @model CarStore.Pages.Products.EditModel
 
 <div class="text-center"><h3>Welcome to Edit section</h3></div>
-@{
-    var errors = ModelState.Values.SelectMany(v => v.Errors);
-}
 
-<form method="post" asp-page="edit" class="p-3 border
+<form method="post" class="my-3" asp-page-handler="Notification">
+    <div class="d-flex align-items-center gap-2">
+        <label>Turn on email notification</label>
+        <input type="checkbox" asp-for="Notify"/>
+        <button type="submit" class="btn btn-info">Submit</button>
+    </div>
+</form>
+
+<form method="post" asp-page-handler="OnPost" class="p-3 border
                 border-1 container d-flex flex-column gap-4"
       enctype="multipart/form-data">
     <div class="row">
