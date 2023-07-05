@@ -35,4 +35,9 @@ public class ProductRepository : IProductRepository
         oldProduct = updatedProduct;
         _data.products[oldProduct.Id -1] = oldProduct;
     }
+
+    public void Delete(Product product)
+    {
+        _data.products.Remove(product);
+    }
 }

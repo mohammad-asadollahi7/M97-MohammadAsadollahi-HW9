@@ -12,5 +12,6 @@ public interface IProductRepository
     IEnumerable<Product> GetAllProduct();
     Product GetProductById(int id);
     void Update(Product updatedProduct);
+    void Delete(Product product);
 
 }
