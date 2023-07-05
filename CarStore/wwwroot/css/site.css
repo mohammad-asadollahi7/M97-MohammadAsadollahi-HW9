@@ -47,6 +47,8 @@ body {
     min-width: 300px;
 }
 
+
+
 @media(max-width:600px){
     .margin {
         margin:3rem auto;
@@ -57,4 +59,18 @@ body {
     .padding{
         padding: 0 !important;
     }
+    .error-margin {
+        margin-left: 0px !important;
+    }
+}
+
+
+
+.error-pic{
+    width: 20px;
+}
+
+.error-margin {
+    margin-left: 7rem;
+    margin-top: .4rem;
 }

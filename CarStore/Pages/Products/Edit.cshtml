@@ -2,15 +2,26 @@
 @model CarStore.Pages.Products.EditModel
 
 <div class="text-center"><h3>Welcome to Edit section</h3></div>
-<form method="post" asp-page="edit" class="p-3 border 
+@{
+    var errors = ModelState.Values.SelectMany(v => v.Errors);
+}
+
+<form method="post" asp-page="edit" class="p-3 border
                 border-1 container d-flex flex-column gap-4"
-                enctype="multipart/form-data">
+      enctype="multipart/form-data">
     <div class="row">
         <input type="hidden" asp-for="@Model.product.Id" />
         <input type="hidden" asp-for="@Model.product.PhotoPath" />
         <input type="hidden" asp-for="@Model.product.Barcode" />
         <label class="col-sm-1 me-5 padding" asp-for="@Model.product.Name"></label>
         <input class="col-sm-9" asp-for="@Model.product.Name" type="text" />
+        <div class="col-12 gap-1 d-flex align-items-center error-margin">
+            @if (!ModelState.IsValid)
+            {
+                <img src="~/Photo/error.png" class="error-pic" />
+            }
+            <span class="text-danger error" asp-validation-for="@Model.product.Name"></span>
+        </div>
     </div>
 
     <div class="row ">
@@ -20,17 +31,17 @@
 
     <div class="row">
         <label class="col-sm-1 me-5 padding" asp-for="@Model.product.Price"></label>
-        <input class="col-sm-9" asp-for="@Model.product.Price" type="text" />
+        <input class="col-sm-9" asp-for="@Model.product.Price" type="number" />
     </div>
     <div class="row">
         <label class="col-sm-1 me-5 padding">Photo:</label>
-        <input class="col-sm-9" asp-for="@Model.Photo" type="file" />
+        <input type="file" style="padding:0" class="col-sm-9" asp-for="Photo" />
     </div>
-    
+
     <div class="text-center">
         <button type="submit" class="btn btn-secondary">Update</button>
         <a asp-page="Index" class="btn btn-danger">Cancel</a>
     </div>
-    
+
 </form>
 

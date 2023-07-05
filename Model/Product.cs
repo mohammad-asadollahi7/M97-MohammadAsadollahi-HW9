@@ -9,16 +9,21 @@ namespace Model
         public int Id { get; set; }
 
         [Display(Name = "Name: ")]
-        public string Name { get; set; }
+        [MinLength(5, ErrorMessage = "Name must be at least 5 characters")]
+        [Required]
+        public string? Name { get; set; }
 
-        public string Barcode { get; set; }
+        public string? Barcode { get; set; }
 
         [Display(Name = "Price: ")]
-        public decimal Price { get; set; }
+        [Required]
+        public decimal? Price { get; set; }
 
-        public string PhotoPath { get; set; }
+        public string? PhotoPath { get; set; }
 
         [Display(Name = "Description: ")]
-        public string Description { get; set; }
+        [MaxLength(200)]
+        [Required]
+        public string? Description { get; set; }
     }
 }

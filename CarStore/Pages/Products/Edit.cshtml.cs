@@ -16,6 +16,7 @@ public class EditModel : PageModel
         _productRepository = productRepository;
         _webHostEnvironment = webHostEnvironment;
     }
+
     [BindProperty]
     public Product product { get; set; }
     public IActionResult OnGet(int id)
@@ -23,33 +24,40 @@ public class EditModel : PageModel
         product = _productRepository.GetProductById(id);
         return Page();
     }
+
     [BindProperty]
-    public IFormFile Photo { get; set; }
+    public IFormFile? Photo { get; set; }
     public IActionResult OnPost()
     {
-        if (Photo != null)
+        if (ModelState.IsValid)
         {
-            if (product.PhotoPath != null)
+            if (Photo != null)
             {
-                var fullPath = Path.Combine(_webHostEnvironment.WebRootPath,
-                                              "Photo", product.PhotoPath);
-                System.IO.File.Delete(fullPath);
+                if (product.PhotoPath != null)
+                {
+                    var fullPath = Path.Combine(_webHostEnvironment.WebRootPath,
+                                                  "Photo", product.PhotoPath);
+                    System.IO.File.Delete(fullPath);
+                }
+                product.PhotoPath = ProcessPhoto();
             }
-            product.PhotoPath = ProcessPhoto();
+            _productRepository.Update(product);
+            return RedirectToPage("Index");
         }
-        _productRepository.Update(product);
-        return RedirectToPage("Index");
+        
+        return Page();
+
     }
 
     private string? ProcessPhoto()
     {
-        string? fileName = null;
+        string? fileName = product.PhotoPath;
         if (Photo != null)
         {
             var folderPath = Path.Combine(_webHostEnvironment.WebRootPath, "Photo");
             fileName = Path.Combine(Guid.NewGuid().ToString() + "_" + Photo.FileName);
             var filePath = Path.Combine(folderPath, fileName);
-            using(var fs = new FileStream(filePath, FileMode.Create))
+            using (var fs = new FileStream(filePath, FileMode.Create))
             {
                 Photo.CopyTo(fs);
             }
