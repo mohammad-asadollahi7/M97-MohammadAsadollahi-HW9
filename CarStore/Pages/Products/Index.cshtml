@@ -7,7 +7,7 @@
     @foreach(var car in @Model.Products)
     {
         var PhotoPath = "~/Photo/" + (@car.PhotoPath ?? "noimage.jpg");
-        <div class="col-lg-3 d-flex flex-column gap-1 align-items-center border border-1 rounded-1">
+        <div class="col-lg-5 d-flex flex-column gap-1 align-items-center border border-1 rounded-1">
             <h5 class="text-center my-1 header">@car.Name</h5>
             <img class="rounded-1 photo-style" src="@PhotoPath" asp-append-version="true"/>
             <div class="rounded-1 mb-2">

@@ -6,47 +6,55 @@
 <form method="post" class="my-3" asp-page-handler="Notification">
     <div class="d-flex align-items-center gap-2">
         <label>Turn on email notification</label>
-        <input type="checkbox" asp-for="Notify"/>
+        <input type="checkbox" asp-for="Notify" />
         <button type="submit" class="btn btn-info">Submit</button>
     </div>
 </form>
+<div class="row align-items-center">
+    <div class="col-lg-7">
+        <form method="post" asp-page-handler="OnPost" class="p-3 d-flex flex-column gap-4  border border-1"
+              enctype="multipart/form-data">
+            <div class="row">
+                <input type="hidden" asp-for="@Model.product.Id" />
+                <input type="hidden" asp-for="@Model.product.PhotoPath" />
+                <input type="hidden" asp-for="@Model.product.Barcode" />
+                <label class="col-sm-2 me-4 padding" asp-for="@Model.product.Name"></label>
+                <input class="col-sm-9" asp-for="@Model.product.Name" type="text" />
+                <div class="col-12 gap-1 d-flex align-items-center error-margin">
+                    @if (!ModelState.IsValid)
+                    {
+                        <img src="~/Photo/error.png" class="error-pic" />
+                    }
+                    <span class="text-danger error" asp-validation-for="@Model.product.Name"></span>
+                </div>
+            </div>
 
-<form method="post" asp-page-handler="OnPost" class="p-3 border
-                border-1 container d-flex flex-column gap-4"
-      enctype="multipart/form-data">
-    <div class="row">
-        <input type="hidden" asp-for="@Model.product.Id" />
-        <input type="hidden" asp-for="@Model.product.PhotoPath" />
-        <input type="hidden" asp-for="@Model.product.Barcode" />
-        <label class="col-sm-1 me-5 padding" asp-for="@Model.product.Name"></label>
-        <input class="col-sm-9" asp-for="@Model.product.Name" type="text" />
-        <div class="col-12 gap-1 d-flex align-items-center error-margin">
-            @if (!ModelState.IsValid)
-            {
-                <img src="~/Photo/error.png" class="error-pic" />
-            }
-            <span class="text-danger error" asp-validation-for="@Model.product.Name"></span>
-        </div>
+            <div class="row">
+                <label class="col-sm-2 me-4 padding" asp-for="@Model.product.Description"></label>
+                <textarea style="max-height: 150px; min-height:50px;" class="col-sm-9" asp-for="@Model.product.Description"></textarea>
+            </div>
+
+            <div class="row">
+                <label class="col-sm-2 me-4 padding" asp-for="@Model.product.Price"></label>
+                <input class="col-sm-9" asp-for="@Model.product.Price" type="number" />
+            </div>
+            <div class="row">
+                <label class="col-sm-2 me-4 padding">Photo:</label>
+                <input type="file" style="padding:0" class="col-sm-9" asp-for="Photo" />
+            </div>
+        </form>
     </div>
 
-    <div class="row ">
-        <label class="col-sm-1 me-5 padding" asp-for="@Model.product.Description"></label>
-        <input class="col-sm-9" asp-for="@Model.product.Description" type="text" />
+    <div class="col-lg-5 text-center">
+        @{
+            var PhotoPath = "~/Photo/" + @Model.product.PhotoPath;
+        }
+        <img class="img-edit" src="@PhotoPath" asp-append-version="true" />
     </div>
-
-    <div class="row">
-        <label class="col-sm-1 me-5 padding" asp-for="@Model.product.Price"></label>
-        <input class="col-sm-9" asp-for="@Model.product.Price" type="number" />
-    </div>
-    <div class="row">
-        <label class="col-sm-1 me-5 padding">Photo:</label>
-        <input type="file" style="padding:0" class="col-sm-9" asp-for="Photo" />
-    </div>
-
-    <div class="text-center">
+    <div class="mt-2 button-style">
         <button type="submit" class="btn btn-secondary">Update</button>
         <a asp-page="Index" class="btn btn-danger">Cancel</a>
     </div>
+</div>
 
-</form>
 

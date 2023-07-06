@@ -18,7 +18,7 @@ body {
 }
 
 .photo-style{
-    height:100px;
+    height:150px;
     width: 80%;
     border: 1px solid gray;
 }
@@ -26,7 +26,7 @@ body {
 @media(max-width: 992px){
     .photo-style {
         height: auto;
-        width: 50%;
+        width: 70%;
         border: 1px solid gray;
     }
     .header{
@@ -73,4 +73,22 @@ body {
 .error-margin {
     margin-left: 7rem;
     margin-top: .4rem;
+}
+
+.img-edit {
+    width: 350px; 
+    border-radius: 10px;
+}
+@media(max-width: 992px){
+    .img-edit{
+        margin-top: 10px;
+    }
+    .button-style {
+        margin-left: 0 !important;
+        text-align:center;
+    }
+}
+
+.button-style {
+    margin-left: 12rem;
 }
